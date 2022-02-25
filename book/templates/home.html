@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<img src="a.jpg">
+
+<h2>Basic Form</h2>
+<hr>
+
+    <form action="{% url 'homepage' %}" method="post"> 
+   
+    {% csrf_token %}
+
+    {% if single_book %}
+    Book Id:- <input type="text" name="bid" value="{{single_book.id}}" readonly><br><br>    
+    {% endif %}
+    
+    Book Name:- <input type="text" name="bname" value="{{single_book.name}}"><br><br>
+    Book Price:- <input type="number" name="bprice" value="{{single_book.price}}"><br><br>
+    Book Qty:- <input type="number"name="bqty" value="{{single_book.qty}}"><br><br>
+
+    <input type="submit" value="Submit">
+    <br>
+    <a href="{% url 'show_all_books' %}">Show All Books</a>
+</form>
+</body>
+</html>
